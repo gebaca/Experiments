@@ -1,12 +1,17 @@
-import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ExperimentCanvas } from './components/ExperimentCanvas';
+import { NotFound } from './components/NotFound';
 
-function App() {
+export default function App() {
   return (
-    <div className='bg-blue-700'>
-      <h1 className='text-3xl font-bold underline text-red-500'>
-        ¿Funciona Tailwind?
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* /experiment/01-gsap-morphing → ExperimentCanvas busca ese id */}
+        <Route path='/experiment/:id' element={<ExperimentCanvas />} />
+
+        {/* Cualquier otra URL → 404 */}
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-export default App;

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "01-gsap-morphing",
+    "title": "SVG Morphing con GSAP",
+    "date": "2026-05-12",
+    "tags": ["gsap", "svg"],
+    "url": "https://experiments-tan.vercel.app/experiment/01-gsap-morphing"
+  }
+]
