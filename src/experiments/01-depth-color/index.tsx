@@ -8,7 +8,7 @@ export const StaticDepthExperiment = () => {
   const objetoCercano = useStaticDepth(2); // Al frente (Z positivo)
 
   return (
-    <div className='relative w-full h-screen bg-slate-950 flex items-center justify-center overflow-hidden'>
+    <div className='relative w-full h-screen bg-white flex items-center justify-center overflow-hidden'>
       {/* 1. OBJETO MUY LEJANO (Z: -4) */}
       <div style={fondoLejano} className='absolute text-emerald-900'>
         <svg width='300' height='300' viewBox='0 0 100 100' fill='currentColor'>
