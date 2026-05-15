@@ -5,5 +5,5 @@ import tailwindcss from '@tailwindcss/vite';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/', // <-- AÑADE ESTA LÍNEA REQUERIDA PARA DEPLOYS
+  base: '/', // <-- Esto DEBE ser '/' para que funcione tanto en local como en Vercel
 });

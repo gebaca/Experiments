@@ -11,13 +11,15 @@ export interface Experiment {
 }
 
 // El registro — una línea por experimento
+// El registro — corregido para que coincida la URL con el ID
 export const experiments: Experiment[] = [
   {
-    id: '01-gsap-morphing',
-    title: 'SVG Morphing con GSAP',
-    date: '2026-05-12',
-    tags: ['gsap', 'svg'],
-    // lazy() significa: no cargues este componente hasta que alguien lo visite
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '01-depth-color',
+    title: 'Profundidad Atmosférica Estática',
+    date: '2026-05-15',
+    tags: ['CSS', 'Depth', 'Hooks'],
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
     component: lazy(() => import('./01-depth-color')),
   },
 ];
