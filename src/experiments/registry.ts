@@ -18,6 +18,6 @@ export const experiments: Experiment[] = [
     date: '2026-05-12',
     tags: ['gsap', 'svg'],
     // lazy() significa: no cargues este componente hasta que alguien lo visite
-    component: lazy(() => import('./01-gsap-morphing')),
+    component: lazy(() => import('./01-depth-color')),
   },
 ];
