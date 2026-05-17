@@ -22,4 +22,14 @@ export const experiments: Experiment[] = [
     // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
     component: lazy(() => import('./01-depth-color')),
   },
+  {
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '02-panel-selector',
+    title: 'Selector de Paneles',
+    date: '2026-05-15',
+    tags: ['React', 'Components', 'UI'],
+
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
+    component: lazy(() => import('./02-panel-selector')),
+  },
 ];
