@@ -158,9 +158,7 @@ const SKIES: SkyConfig[] = [
 ];
 
 // Cuántos px ocupa cada panel en la escena (alto total 420px / 4 paneles)
-const PANEL_HEIGHT = 105;
-const SCENE_WIDTH = 560;
-const SCENE_HEIGHT = PANEL_HEIGHT * SKIES.length; // 420
+const SCENE_WIDTH = typeof window !== 'undefined' ? window.innerWidth : 1440;
 
 // ─────────────────────────────────────────────
 // SUBCOMPONENTE: Nube individual
@@ -290,8 +288,8 @@ function SkyPanel({ sky, index, onClick, isHidden }: SkyPanelProps) {
       ref={panelRef}
       className='absolute left-0 right-0 overflow-hidden cursor-pointer group'
       style={{
-        top: index * PANEL_HEIGHT,
-        height: PANEL_HEIGHT,
+        top: `${index * 25}%`,
+        height: '25%',
       }}
       onClick={() => onClick(sky.id)}
     >
@@ -343,26 +341,19 @@ function ElectricPole() {
 
   return (
     <svg
-      viewBox={`0 0 ${SCENE_WIDTH} ${SCENE_HEIGHT}`}
+      viewBox='0 0 560 420'
       className='absolute inset-0 w-full h-full pointer-events-none'
       style={{ ...depthStyle, zIndex: 10 }}
       xmlns='http://www.w3.org/2000/svg'
     >
       {/* Poste vertical */}
-      <rect
-        x='272'
-        y='0'
-        width='16'
-        height={SCENE_HEIGHT}
-        fill='#5a4e43'
-        rx='2'
-      />
+      <rect x='272' y='0' width='16' height='100%' fill='#5a4e43' rx='2' />
       {/* Reflejos del poste (volumen) */}
       <rect
         x='272'
         y='0'
         width='4'
-        height={SCENE_HEIGHT}
+        height='100%'
         fill='rgba(255,255,255,0.07)'
         rx='1'
       />
@@ -370,7 +361,7 @@ function ElectricPole() {
         x='282'
         y='0'
         width='6'
-        height={SCENE_HEIGHT}
+        height='100%'
         fill='rgba(0,0,0,0.3)'
         rx='1'
       />
@@ -572,10 +563,7 @@ export default function SkyPanels() {
         }
       `}</style>
 
-      <div
-        className='relative overflow-hidden border border-white/10'
-        style={{ width: SCENE_WIDTH, height: SCENE_HEIGHT }}
-      >
+      <div className='relative overflow-hidden border border-white/10 w-screen h-screen'>
         {/* 1. Fondo cuando hay un cielo seleccionado (z:1) */}
         <SelectedBackground sky={selectedSky} />
 
