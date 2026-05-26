@@ -32,4 +32,14 @@ export const experiments: Experiment[] = [
     // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
     component: lazy(() => import('./02-panel-selector')),
   },
+  {
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '03-svg-draw',
+    title: 'Dibujo SVG Animado',
+    date: '2026-05-17',
+    tags: ['React', 'SVG', 'Animation'],
+
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
+    component: lazy(() => import('./03-svg-draw')),
+  },
 ];
