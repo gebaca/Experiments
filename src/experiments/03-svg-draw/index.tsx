@@ -1,27 +1,25 @@
 import { useState } from 'react';
-import { LaDanseSvg } from './LaDanseSvg';
+import LaDanseSvg from './LaDanseSvg';
 
 export default function App() {
   const [animationKey, setAnimationKey] = useState(0);
 
   const handleReplay = () => {
-    // Forzamos el desmontaje y remontaje para reiniciar el hook de animación
     setAnimationKey((prev) => prev + 1);
   };
 
   return (
-    <div className='flex min-h-screen flex-col items-center justify-center bg-zinc-950 p-6 text-white antialiased'>
-      {/* Contenedor de la escena */}
-      <div className='relative flex aspect-square w-full max-w-xl items-center justify-center overflow-hidden rounded-2xl bg-white p-8 shadow-2xl shadow-black/40'>
-        <LaDanseSvg key={animationKey} animationDuration={3000} size='100%' />
-      </div>
+    // Contenedor principal que ocupa el 100% real del viewport
+    <div className='relative h-screen w-screen overflow-hidden bg-white antialiased'>
+      {/* El componente SVG ocupando absolutamente todo el espacio disponible */}
+      <LaDanseSvg key={animationKey} className='h-full w-full' />
 
-      {/* Control de la animación */}
+      {/* Botón flotante minimalista en la esquina inferior para no romper la estética */}
       <button
         onClick={handleReplay}
-        className='mt-8 rounded-full bg-zinc-800 px-6 py-2.5 text-sm font-medium tracking-wide text-zinc-200 transition-all hover:bg-zinc-700 hover:text-white active:scale-95'
+        className='absolute bottom-6 right-6 z-50 rounded-full bg-zinc-950/80 px-5 py-2 text-xs font-medium tracking-wide text-zinc-200 backdrop-blur-sm transition-all hover:bg-zinc-950 hover:text-white active:scale-95 shadow-lg'
       >
-        Volver a dibujar
+        Reiniciar dibujo
       </button>
     </div>
   );
