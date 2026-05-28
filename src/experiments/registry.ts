@@ -42,4 +42,14 @@ export const experiments: Experiment[] = [
     // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
     component: lazy(() => import('./03-svg-draw')),
   },
+  {
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '04-brush-trail',
+    title: 'Estela de Pincel',
+    date: '2026-05-18',
+    tags: ['React', 'SVG', 'Animation'],
+
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
+    component: lazy(() => import('./04-brush-trail')),
+  },
 ];
