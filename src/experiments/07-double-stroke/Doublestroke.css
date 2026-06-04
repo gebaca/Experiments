@@ -23,6 +23,10 @@
   --stroke-tinted-calledup-inner: #ffffff;
   --stroke-tinted-playing-outer: #eec878;
   --stroke-tinted-playing-inner: #ffffff;
+
+  /* ── Añade estas dos líneas ── */
+  --stroke-gap: 2px;
+  --stroke-outer: 2px;
 }
 
 /* ============================================
@@ -210,15 +214,4 @@
 .ds-card[data-state='playing'] .ds-card__pill {
   background: #d4860a;
   color: #ffffff;
-}
-
-/* ============================================
-   Retina — 0.5px físico en pantallas 2x
-   ============================================ */
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-  :root {
-    --stroke-gap: 0.5px;
-    --stroke-outer: 0.5px;
-  }
 }
