@@ -1,0 +1,224 @@
+/* ============================================
+   Double Stroke System — Experiment #07
+   Design Engineering · Card Depth
+   ============================================ */
+
+:root {
+  /* ── Stroke tokens ── */
+
+  /* Subtle — casi invisible, muy refinado */
+  --stroke-subtle-outer: #d8d8da;
+  --stroke-subtle-inner: #ffffff;
+
+  /* Defined — marcado, la card tiene peso */
+  --stroke-defined-outer: #c0c0c3;
+  --stroke-defined-inner: #f7f7f7;
+
+  /* Tinted — conecta con el estado del componente */
+  --stroke-tinted-available-outer: #b8dfc8;
+  --stroke-tinted-available-inner: #ffffff;
+  --stroke-tinted-injured-outer: #eebaba;
+  --stroke-tinted-injured-inner: #ffffff;
+  --stroke-tinted-calledup-outer: #aacce8;
+  --stroke-tinted-calledup-inner: #ffffff;
+  --stroke-tinted-playing-outer: #eec878;
+  --stroke-tinted-playing-inner: #ffffff;
+}
+
+/* ============================================
+   Base card — no stroke
+   ============================================ */
+
+.ds-card {
+  position: relative;
+  width: 180px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition:
+    border-radius 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Variant: none (baseline)
+   ============================================ */
+
+.ds-card[data-variant='none'] {
+  box-shadow: 0 0 0 1px #e5e5e5;
+}
+
+/* ============================================
+   Variant: subtle
+   ============================================ */
+
+.ds-card[data-variant='subtle'] {
+  box-shadow:
+    0 0 0 var(--stroke-gap) var(--stroke-subtle-inner),
+    0 0 0 calc(var(--stroke-gap) + var(--stroke-outer))
+      var(--stroke-subtle-outer);
+}
+
+/* ============================================
+   Variant: defined
+   ============================================ */
+
+.ds-card[data-variant='defined'] {
+  box-shadow:
+    0 0 0 var(--stroke-gap) var(--stroke-defined-inner),
+    0 0 0 calc(var(--stroke-gap) + var(--stroke-outer))
+      var(--stroke-defined-outer);
+}
+
+/* ============================================
+   Variant: tinted — por estado
+   ============================================ */
+
+.ds-card[data-variant='tinted'][data-state='available'] {
+  box-shadow:
+    0 0 0 var(--stroke-gap) var(--stroke-tinted-available-inner),
+    0 0 0 calc(var(--stroke-gap) + var(--stroke-outer))
+      var(--stroke-tinted-available-outer);
+}
+
+.ds-card[data-variant='tinted'][data-state='injured'] {
+  box-shadow:
+    0 0 0 var(--stroke-gap) var(--stroke-tinted-injured-inner),
+    0 0 0 calc(var(--stroke-gap) + var(--stroke-outer))
+      var(--stroke-tinted-injured-outer);
+}
+
+.ds-card[data-variant='tinted'][data-state='called_up'] {
+  box-shadow:
+    0 0 0 var(--stroke-gap) var(--stroke-tinted-calledup-inner),
+    0 0 0 calc(var(--stroke-gap) + var(--stroke-outer))
+      var(--stroke-tinted-calledup-outer);
+}
+
+.ds-card[data-variant='tinted'][data-state='playing'] {
+  box-shadow:
+    0 0 0 var(--stroke-gap) var(--stroke-tinted-playing-inner),
+    0 0 0 calc(var(--stroke-gap) + var(--stroke-outer))
+      var(--stroke-tinted-playing-outer);
+}
+
+/* ============================================
+   Card internals — same as experiment 05
+   ============================================ */
+
+.ds-card__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    background 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ds-card[data-state='available'] .ds-card__fill {
+  background: #e1f5ee;
+  opacity: 0.35;
+}
+.ds-card[data-state='injured'] .ds-card__fill {
+  background: #fcebeb;
+  opacity: 0.35;
+}
+.ds-card[data-state='called_up'] .ds-card__fill {
+  background: #e6f1fb;
+  opacity: 0.35;
+}
+.ds-card[data-state='playing'] .ds-card__fill {
+  background: #faeeda;
+  opacity: 0.35;
+}
+
+.ds-card__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 500;
+  z-index: 1;
+  transition:
+    background 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ds-card[data-state='available'] .ds-card__avatar {
+  background: #9fe1cb;
+  color: #085041;
+}
+.ds-card[data-state='injured'] .ds-card__avatar {
+  background: #f7c1c1;
+  color: #791f1f;
+}
+.ds-card[data-state='called_up'] .ds-card__avatar {
+  background: #b5d4f4;
+  color: #0c447c;
+}
+.ds-card[data-state='playing'] .ds-card__avatar {
+  background: #fac775;
+  color: #633806;
+}
+
+.ds-card__name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0d0d0d;
+  z-index: 1;
+}
+
+.ds-card__meta {
+  font-size: 11px;
+  color: #404040;
+  margin-top: -6px;
+  z-index: 1;
+}
+
+.ds-card__pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 1;
+  transition:
+    background 160ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ds-card[data-state='available'] .ds-card__pill {
+  background: #5dcaa5;
+  color: #ffffff;
+}
+.ds-card[data-state='injured'] .ds-card__pill {
+  background: #e87070;
+  color: #ffffff;
+}
+.ds-card[data-state='called_up'] .ds-card__pill {
+  background: #5599d8;
+  color: #ffffff;
+}
+.ds-card[data-state='playing'] .ds-card__pill {
+  background: #d4860a;
+  color: #ffffff;
+}
+
+/* ============================================
+   Retina — 0.5px físico en pantallas 2x
+   ============================================ */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  :root {
+    --stroke-gap: 0.5px;
+    --stroke-outer: 0.5px;
+  }
+}

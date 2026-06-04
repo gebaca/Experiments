@@ -72,4 +72,14 @@ export const experiments: Experiment[] = [
     // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
     component: lazy(() => import('./06-timing-panel')),
   },
+  {
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '07-double-stroke',
+    title: 'Sistema de Doble Borde',
+    date: '2026-05-20',
+    tags: ['React', 'CSS', 'UI'],
+
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
+    component: lazy(() => import('./07-double-stroke')),
+  },
 ];
