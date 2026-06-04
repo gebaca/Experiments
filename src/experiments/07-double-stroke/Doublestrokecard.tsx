@@ -1,4 +1,4 @@
-import './doubleStroke.css';
+import './Doublestroke.css';
 import type { StrokeVariant, PlayerStatus } from './Types.ts';
 import { STATUS_LABELS } from './Types.ts';
 
