@@ -82,4 +82,24 @@ export const experiments: Experiment[] = [
     // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
     component: lazy(() => import('./07-double-stroke')),
   },
+  {
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '08-scroll-parallax',
+    title: 'Parallax Scroll Animado',
+    date: '2026-05-21',
+    tags: ['React', 'SVG', 'Animation'],
+
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
+    component: lazy(() => import('./08-scroll-parallax')),
+  },
+  {
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '09-svg-hover',
+    title: 'Hover SVG Animado',
+    date: '2026-05-21',
+    tags: ['React', 'SVG', 'Animation'],
+
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
+    component: lazy(() => import('./09-svg-hover')),
+  },
 ];
