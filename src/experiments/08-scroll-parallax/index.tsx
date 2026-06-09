@@ -247,7 +247,7 @@ export default function MotionShowcaseKittens() {
                 {slide.previews.map((src, idx) => (
                   <div
                     key={idx}
-                    className='aspect-[3/4] w-full overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-neutral-900'
+                    className='aspect-3/4 w-full overflow-hidden rounded-xl shadow-2xl border border-white/10 bg-neutral-900'
                   >
                     <img
                       src={src}
