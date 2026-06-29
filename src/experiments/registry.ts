@@ -102,4 +102,14 @@ export const experiments: Experiment[] = [
     // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
     component: lazy(() => import('./09-svg-hover')),
   },
+  {
+    // 1. Cambia el ID para que coincida con lo que quieres poner en la URL
+    id: '10-expressive-table',
+    title: 'Tabla Expresiva',
+    date: '2026-05-21',
+    tags: ['React', 'CSS', 'UI'],
+
+    // 2. Apunta a la carpeta correcta donde tienes el código de las tres tarjetas
+    component: lazy(() => import('./10-expressive-table')),
+  },
 ];
